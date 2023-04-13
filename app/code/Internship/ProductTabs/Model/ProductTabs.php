@@ -15,9 +15,19 @@ class ProductTabs extends AbstractModel implements ProductTabsInterface
      */
     protected function _construct()
     {
-        $this->_init(ProductTabsInterface::class);
+        $this->_init(\Internship\ProductTabs\Model\ResourceModel\ProductTabs::class);
     }
 
+    public function getEntityId()
+    {
+        return $this->getData(ProductTabsInterface::ENTITY_ID);
+    }
+
+    public function setEntityId($entityId)
+    {
+        $this->setData(ProductTabsInterface::ENTITY_ID, $entityId);
+        return $this;
+    }
 
     public function getStatus()
     {

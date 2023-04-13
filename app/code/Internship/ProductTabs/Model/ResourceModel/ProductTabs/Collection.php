@@ -1,13 +1,11 @@
 <?php
 namespace Internship\ProductTabs\Model\ResourceModel\ProductTabs;
 
-use Internship\ProductTabs\Model\ProductTabs;
-use Internship\ProductTabs\Model\ResourceModel\ProductTabs as ProductTabsResource;
 use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
 
 /**
  * Class Collection
- * @package Internship\ProductTabs\Model\ResourceModel\Post
+ * @package Internship\ProductTabs\Model\ResourceModel\ProductTabs
  */
 class Collection extends AbstractCollection
 {
@@ -16,6 +14,6 @@ class Collection extends AbstractCollection
      */
     protected function _construct()
     {
-        $this->_init(ProductTabs::class, ProductTabsResource::class);
+        $this->_init(\Internship\ProductTabs\Model\ProductTabs::class, \Internship\ProductTabs\Model\ResourceModel\ProductTabs::class);
     }
 }

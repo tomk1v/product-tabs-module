@@ -8,46 +8,50 @@ use Magento\Framework\Api\SearchResults;
 use Magento\Framework\Api\SearchResultsFactory;
 use Magento\Framework\Exception\CouldNotDeleteException;
 use Magento\Framework\Exception\CouldNotSaveException;
-use Magento\Framework\Exception\NoSuchEntityException;
 use Internship\ProductTabs\Api\ProductTabsRepositoryInterface;
 use Internship\ProductTabs\Api\Data\ProductTabsInterface;
-use Internship\ProductTabs\Api\Data\ProductTabsInterfaceFactory;
+use Internship\ProductTabs\Model\ProductTabsFactory;
 use Internship\ProductTabs\Model\ResourceModel\ProductTabs as ProductTabsResource;
 use Internship\ProductTabs\Model\ResourceModel\ProductTabs\CollectionFactory as ProductTabsCollectionFactory;
+use Internship\ProductTabs\Model\ResourceModel\ProductTabs\Collection;
+use Magento\Framework\Exception\NoSuchEntityException;
 
 class ProductTabsRepository implements ProductTabsRepositoryInterface
 {
-    private $productTabsInterfaceFactory;
+    private $productTabsFactory;
     private $productTabsResource;
     private $productTabsCollectionFactory;
     private $searchResultsFactory;
     private $collectionProcessor;
 
     public function __construct(
-        ProductTabsInterfaceFactory              $productTabsInterfaceFactory,
+        ProductTabsFactory              $productTabsFactory,
         ProductTabsResource                      $productTabsResource,
         ProductTabsCollectionFactory             $productTabsCollectionFactory,
         SearchResultsFactory                  $searchResultsFactory,
-        CollectionProcessorInterface          $collectionProcessor
+        CollectionProcessorInterface          $collectionProcessor,
+        Collection                            $productTabsCollection
     )
     {
-        $this->productTabsInterfaceFactory = $productTabsInterfaceFactory;
+        $this->productTabsFactory = $productTabsFactory;
         $this->productTabsResource = $productTabsResource;
         $this->productTabsCollectionFactory = $productTabsCollectionFactory;
         $this->searchResultsFactory = $searchResultsFactory;
         $this->collectionProcessor = $collectionProcessor;
+        $this->productTabsCollection = $productTabsCollection;
     }
 
     /**
-     * @inheritDoc
+     * @param $entityId
+     * @return ProductTabsInterface
      * @throws NoSuchEntityException
      */
-    public function getById($entity_id)
+    public function getById($entityId)
     {
-        $productTabs = $this->productTabsInterfaceFactory->create();
-        $this->productTabsResource->load($productTabs, $entity_id);
-        if (!$productTabs->getId()) {
-            throw new NoSuchEntityException(__('Product Tab with id "%1" does not exist.', $entity_id));
+        $productTabs = $this->productTabsFactory->create();
+        $this->productTabsResource->load($productTabs, $entityId);
+        if (!$productTabs->getEntityId()) {
+            throw new NoSuchEntityException(__('Requested tab doesn\'t exist'));
         }
         return $productTabs;
     }

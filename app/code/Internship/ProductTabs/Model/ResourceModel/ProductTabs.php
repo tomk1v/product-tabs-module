@@ -4,10 +4,6 @@ namespace Internship\ProductTabs\Model\ResourceModel;
 use Internship\ProductTabs\Api\Data\ProductTabsInterface;
 use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 
-/**
- * Class Post
- * @package Internship\ProductTabs\Model\ResourceModel
- */
 class ProductTabs extends AbstractDb
 {
     /**

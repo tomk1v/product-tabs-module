@@ -26,10 +26,10 @@ interface ProductTabsInterface
     public function getEntityId();
 
     /**
-     * @param int $entity_id
+     * @param int $entityId
      * @return $this
      */
-    public function setEntityId($entity_id);
+    public function setEntityId($entityId);
 
     /**
      * @return int

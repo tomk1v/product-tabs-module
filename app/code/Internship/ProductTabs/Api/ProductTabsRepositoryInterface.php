@@ -12,10 +12,10 @@ use Magento\Framework\Api\SearchCriteriaInterface;
 interface ProductTabsRepositoryInterface
 {
     /**
-     * @param int $entity_id
+     * @param int $entityId
      * @return \Internship\ProductTabs\Api\Data\ProductTabsInterface
      */
-    public function getById(int $entity_id);
+    public function getById(int $entityId);
 
     /**
      * @param \Magento\Framework\Api\SearchCriteriaInterface $searchCriteria
