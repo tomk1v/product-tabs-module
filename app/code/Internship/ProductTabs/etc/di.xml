@@ -22,4 +22,8 @@
             <argument name="resourceModel" xsi:type="string">Internship\ProductTabs\Model\ResourceModel\ProductTabs</argument>
         </arguments>
     </virtualType>
+
+    <type name="Magento\Catalog\Block\Product\View\Details">
+        <plugin name="product_tabs_view_description_after" type="Internship\ProductTabs\Plugin\DescriptionPlugin"/>
+    </type>
 </config>
