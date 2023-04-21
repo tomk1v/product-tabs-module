@@ -16,16 +16,15 @@ class DescriptionPlugin
 
     public function afterGetGroupSortedChildNames(Details $subject, $result)
     {
-        $sortOrder = 50;
-        $productTabs = $this->productTabsConfig->getTabs();
+        $productTabs = $this->productTabsConfig->getProductTabs();
         if (!empty($productTabs)) {
-            foreach ($productTabs as $key => $tab) {
-                $result = array_merge($result, [
-                    $sortOrder => "product.info.details.$key"
-                ]);
+            foreach ($productTabs as $productTab) {
+                if ($productTab->getStatus()) {
+                    $key = trim(strtolower($productTab->getName()));
+                    $result = array_merge($result, ["product.info.details.$key"]);
+                }
             }
         }
-
         return $result;
     }
 }

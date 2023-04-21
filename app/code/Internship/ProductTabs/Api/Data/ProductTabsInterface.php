@@ -1,24 +1,14 @@
 <?php
-namespace Internship\ProductTabs\Api\Data;
 
-/**
- * Interface ProductTabs
- * @package ProductTabs\Api\Data
- * @api
- */
+namespace Internship\ProductTabs\Api\Data;
 interface ProductTabsInterface
 {
-    /**#@+
-     * Constants
-     * @var string
-     */
     const ENTITY_ID = 'entity_id';
     const STATUS = 'status';
     const NAME = 'tab_name';
     const DESCRIPTION = 'description';
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
-    /**#@-*/
 
     /**
      * @return int

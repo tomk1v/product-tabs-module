@@ -20,7 +20,7 @@ class GenerateProductTabs implements ObserverInterface
        /** @var \Magento\Framework\View\Layout $layout */
         $layout = $observer->getLayout();
         $blocks = $layout->getAllBlocks();
-        $productTabs = $this->productTabsConfig->getTabs();
+        $productTabs = $this->productTabsConfig->getProductTabs();
 
         foreach ($blocks as $block) {
             if ($block->getNameInLayout() == "product.info.details") {
@@ -31,16 +31,19 @@ class GenerateProductTabs implements ObserverInterface
 
     private function addProductTabs($block, $productTabs)
     {
-        foreach ($productTabs as $key => $productTab) {
-            $block->addChild(
-                $key,
-                \Magento\Catalog\Block\Product\View::class,
-                [
-                    "template" => "Internship_ProductTabs::product_tabs_render.phtml",
-                    "title" => $productTab['title'],
-                    "description" => $productTab['description']
-                ]
-            );
+        foreach ($productTabs as $productTab) {
+            if ($productTab->getStatus()) {
+                $block->addChild(
+                    trim(strtolower($productTab->getName())),
+                    \Magento\Catalog\Block\Product\View::class,
+                    [
+                        "template" => "Internship_ProductTabs::product_tabs_render.phtml",
+                        "title" => $productTab->getName(),
+                        "description" => $productTab->getDescription(),
+                        "status" => $productTab->getStatus()
+                    ]
+                );
+            }
         }
     }
 }

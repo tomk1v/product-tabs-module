@@ -16,7 +16,7 @@
     </route>
     <route url="/V1/product_tabs/tabs/:id" method="GET">
         <service class="Internship\ProductTabs\Api\ProductTabsRepositoryInterface"
-                 method="get"/>
+                 method="getById"/>
         <resources>
             <resource ref="anonymous"/>
         </resources>

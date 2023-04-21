@@ -4,20 +4,17 @@ namespace Internship\ProductTabs\Model\ProductTabs;
 
 class ProductTabsConfig
 {
-    private $tabs = [
-    "test1" => [
-        "title" => "Test tab number 1",
-        "description" => "Lorem dfegfwgwgwrgwrgwrgwrg",
-        "sort_order" => 50
-    ],
-    "test2" => [
-        "title" => "Test tab number 2",
-        "description" => "Lorem dfegfwgwgwrgwrgw ebeb etb ebe be be be b b enpee,otno ,e  353rgwrg",
-        "sort_order" => 50
-    ]];
+    public function __construct(
+        \Magento\Framework\Api\SearchCriteriaInterface $searchCriteria,
+        \Internship\ProductTabs\Api\ProductTabsRepositoryInterface $productTabsRepository
+    ) {
+        $this->searchCriteria = $searchCriteria;
+        $this->productTabsRepository = $productTabsRepository;
+    }
 
-    public function getTabs()
+    public function getProductTabs()
     {
-        return $this->tabs;
+        $listProductTabs = $this->productTabsRepository->getList($this->searchCriteria);
+        return $listProductTabs->getItems();
     }
 }
