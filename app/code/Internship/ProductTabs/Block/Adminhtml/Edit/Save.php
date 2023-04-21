@@ -1,12 +1,11 @@
 <?php
 /**
- * Store Locator
- * Block is used for save button in admin edit form
+ * Product Tabs
  *
  * @category  Internship
- * @package   Internship\StoreLocator
+ * @package   Internship\ProductTabs
  * @author    Andrii Tomkiv <tomkivandrii18@gmail.com>
- * @copyright 2022 Elogic
+ * @copyright 2023 tomk1v
  */
 
 namespace Internship\ProductTabs\Block\Adminhtml\Edit;
@@ -17,7 +16,7 @@ use Magento\Customer\Block\Adminhtml\Edit\GenericButton;
 class Save extends GenericButton implements ButtonProviderInterface
 {
     /**
-     * Save button
+     * Get button save data
      *
      * @return array
      */

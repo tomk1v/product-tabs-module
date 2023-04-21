@@ -1,15 +1,24 @@
 <?php
+/**
+ * Product Tabs
+ *
+ * @category  Internship
+ * @package   Internship\ProductTabs
+ * @author    Andrii Tomkiv <tomkivandrii18@gmail.com>
+ * @copyright 2023 tomk1v
+ */
+
+
 namespace Internship\ProductTabs\Controller\Adminhtml\Index;
 
+use Internship\ProductTabs\Model\ProductTabsFactory;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\App\Request\DataPersistorInterface;
-use Magento\Framework\Exception\LocalizedException;
+use Magento\Framework\Controller\Result\Redirect;
+use Magento\Framework\View\Result\Page;
 use Magento\Framework\View\Result\PageFactory;
 use Internship\ProductTabs\Api\ProductTabsRepositoryInterface;
-use Magento\Backend\Model\View\Result\Page;
-use Internship\ProductTabs\Api\Data\ProductTabsInterface;
-use Magento\Framework\Controller\ResultFactory;
-use Magento\Backend\Model\View\Result\Redirect;
+
 class Edit extends \Magento\Backend\App\Action
 {
     /**
@@ -44,7 +53,7 @@ class Edit extends \Magento\Backend\App\Action
         PageFactory $resultPageFactory,
         ProductTabsRepositoryInterface $productTabsRepositoryInterface,
         DataPersistorInterface $dataPersistor,
-        \Internship\ProductTabs\Model\ProductTabsFactory $productTabsFactory,
+        ProductTabsFactory $productTabsFactory,
         \Internship\ProductTabs\Api\Data\ProductTabsInterface $productTabsInterface,
         \Magento\Framework\Message\ManagerInterface $messageManager
     ) {
@@ -59,7 +68,7 @@ class Edit extends \Magento\Backend\App\Action
 
 
     /**
-     * @return \Magento\Framework\View\Result\Page|\Magento\Framework\Controller\Result\Redirect
+     * @return Page|Redirect
      */
     public function execute()
     {
@@ -88,7 +97,7 @@ class Edit extends \Magento\Backend\App\Action
             $resultRedirect = $this->resultRedirectFactory->create();
             return $resultRedirect->setPath('*/*/');
         }
-//TODO: empty field on view page
+
         $resultPage = $this->resultPageFactory->create();
         $resultPage->setActiveMenu('Internship_ProductTabs::home');
         $resultPage->getConfig()->getTitle()->prepend(__('Edit Custom Item'));

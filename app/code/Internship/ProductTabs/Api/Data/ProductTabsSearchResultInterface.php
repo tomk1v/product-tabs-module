@@ -1,21 +1,26 @@
 <?php
+/**
+ * Product Tabs
+ *
+ * @category  Internship
+ * @package   Internship\ProductTabs
+ * @author    Andrii Tomkiv <tomkivandrii18@gmail.com>
+ * @copyright 2023 tomk1v
+ */
+
 namespace Internship\ProductTabs\Api\Data;
 
 use Magento\Framework\Api\SearchResultsInterface;
 
-/**
- * Interface PostSearchResultInterface
- * @package AlexPoletaev\Blog\Api\Data
- */
 interface ProductTabsSearchResultInterface extends SearchResultsInterface
 {
     /**
-     * @return \Internship\ProductTabs\Api\Data\ProductTabsInterface[]
+     * @return ProductTabsInterface[]
      */
     public function getItems();
 
     /**
-     * @param \Internship\ProductTabs\Api\Data\ProductTabsInterface[] $items
+     * @param ProductTabsInterface[] $items
      * @return $this
      */
     public function setItems(array $items);

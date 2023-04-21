@@ -1,4 +1,12 @@
 <?php
+/**
+ * Product Tabs
+ *
+ * @category  Internship
+ * @package   Internship\ProductTabs
+ * @author    Andrii Tomkiv <tomkivandrii18@gmail.com>
+ * @copyright 2023 tomk1v
+ */
 
 namespace Internship\ProductTabs\Block\Adminhtml\Edit;
 
@@ -7,6 +15,11 @@ use Magento\Customer\Block\Adminhtml\Edit\GenericButton;
 
 class Back extends GenericButton implements ButtonProviderInterface
 {
+    /**
+     * Get button back data.
+     *
+     * @return array
+     */
     public function getButtonData()
     {
         return [
@@ -17,6 +30,11 @@ class Back extends GenericButton implements ButtonProviderInterface
         ];
     }
 
+    /**
+     * Get back url
+     *
+     * @return string
+     */
     public function getBackUrl()
     {
         return $this->getUrl('*/*/');

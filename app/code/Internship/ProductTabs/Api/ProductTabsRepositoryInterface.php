@@ -1,36 +1,40 @@
 <?php
+/**
+ * Product Tabs
+ *
+ * @category  Internship
+ * @package   Internship\ProductTabs
+ * @author    Andrii Tomkiv <tomkivandrii18@gmail.com>
+ * @copyright 2023 tomk1v
+ */
+
 namespace Internship\ProductTabs\Api;
 
 use Internship\ProductTabs\Api\Data\ProductTabsInterface;
 use Magento\Framework\Api\SearchCriteriaInterface;
 
-/**
- * Interface PostRepositoryInterface
- * @package ProductTabs\Api
- * @api
- */
 interface ProductTabsRepositoryInterface
 {
     /**
      * @param int $entityId
-     * @return \Internship\ProductTabs\Api\Data\ProductTabsInterface
+     * @return ProductTabsInterface
      */
     public function getById(int $entityId);
 
     /**
-     * @param \Magento\Framework\Api\SearchCriteriaInterface $searchCriteria
-     * @return \Internship\ProductTabs\Api\Data\ProductTabsInterface
+     * @param SearchCriteriaInterface $searchCriteria
+     * @return ProductTabsInterface
      */
     public function getList(SearchCriteriaInterface $searchCriteria);
 
     /**
-     * @param \Internship\ProductTabs\Api\Data\ProductTabsInterface $productTabs
-     * @return \Internship\ProductTabs\Api\Data\ProductTabsInterface
+     * @param ProductTabsInterface $productTabs
+     * @return ProductTabsInterface
      */
     public function save(ProductTabsInterface $productTabs);
 
     /**
-     * @param \Internship\ProductTabs\Api\Data\ProductTabsInterface $productTabs
+     * @param ProductTabsInterface $productTabs
      * @return bool
      */
     public function delete(ProductTabsInterface $productTabs);

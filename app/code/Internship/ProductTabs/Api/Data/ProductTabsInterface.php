@@ -1,6 +1,15 @@
 <?php
+/**
+ * Product Tabs
+ *
+ * @category  Internship
+ * @package   Internship\ProductTabs
+ * @author    Andrii Tomkiv <tomkivandrii18@gmail.com>
+ * @copyright 2023 tomk1v
+ */
 
 namespace Internship\ProductTabs\Api\Data;
+
 interface ProductTabsInterface
 {
     const ENTITY_ID = 'entity_id';

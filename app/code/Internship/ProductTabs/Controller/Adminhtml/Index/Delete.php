@@ -1,12 +1,11 @@
 <?php
 /**
- * Store Locator
- * Controller process URL-request for delete record button
+ * Product Tabs
  *
  * @category  Internship
- * @package   Internship\StoreLocator
+ * @package   Internship\ProductTabs
  * @author    Andrii Tomkiv <tomkivandrii18@gmail.com>
- * @copyright 2022 Elogic
+ * @copyright 2023 tomk1v
  */
 
 namespace Internship\ProductTabs\Controller\Adminhtml\Index;
@@ -38,6 +37,8 @@ class Delete extends Action
     }
 
     /**
+     * Execution of delete action
+     *
      * @return ResultInterface
      */
     public function execute()
