@@ -1,4 +1,13 @@
 <?php
+/**
+ * Product Tabs
+ *
+ * @category  Internship
+ * @package   Internship\ProductTabs
+ * @author    Andrii Tomkiv <tomkivandrii18@gmail.com>
+ * @copyright 2023 tomk1v
+ */
+
 namespace Internship\ProductTabs\Model;
 
 use Internship\ProductTabs\Api\Data\ProductTabsInterface;
@@ -15,6 +24,8 @@ class ProductTabs extends AbstractModel implements ProductTabsInterface
     }
 
     /**
+     * Get entity id
+     *
      * @return array|int|mixed|null
      */
     public function getEntityId()
@@ -23,6 +34,8 @@ class ProductTabs extends AbstractModel implements ProductTabsInterface
     }
 
     /**
+     * Set entity id
+     *
      * @param $entityId
      * @return $this|ProductTabs
      */
@@ -33,6 +46,8 @@ class ProductTabs extends AbstractModel implements ProductTabsInterface
     }
 
     /**
+     * Get status
+     *
      * @return array|int|mixed|null
      */
     public function getStatus()
@@ -41,6 +56,8 @@ class ProductTabs extends AbstractModel implements ProductTabsInterface
     }
 
     /**
+     * Set status
+     *
      * @param $status
      * @return $this|ProductTabs
      */
@@ -51,6 +68,8 @@ class ProductTabs extends AbstractModel implements ProductTabsInterface
     }
 
     /**
+     * Get name
+     *
      * @return array|mixed|string|null
      */
     public function getName()
@@ -59,6 +78,8 @@ class ProductTabs extends AbstractModel implements ProductTabsInterface
     }
 
     /**
+     * Set name
+     *
      * @param string $name
      * @return $this|ProductTabs
      */
@@ -69,6 +90,8 @@ class ProductTabs extends AbstractModel implements ProductTabsInterface
     }
 
     /**
+     * Get description
+     *
      * @return array|mixed|string|null
      */
     public function getDescription()
@@ -77,6 +100,8 @@ class ProductTabs extends AbstractModel implements ProductTabsInterface
     }
 
     /**
+     * Set description
+     *
      * @param string $description
      * @return $this|ProductTabs
      */
@@ -87,6 +112,8 @@ class ProductTabs extends AbstractModel implements ProductTabsInterface
     }
 
     /**
+     * Get created at
+     *
      * @return array|mixed|string|null
      */
     public function getCreatedAt()
@@ -95,6 +122,8 @@ class ProductTabs extends AbstractModel implements ProductTabsInterface
     }
 
     /**
+     * Set created at
+     *
      * @param string $createdAt
      * @return $this|ProductTabs
      */
@@ -105,6 +134,8 @@ class ProductTabs extends AbstractModel implements ProductTabsInterface
     }
 
     /**
+     * Get updated at
+     *
      * @return array|mixed|string|null
      */
     public function getUpdatedAt()
@@ -113,6 +144,8 @@ class ProductTabs extends AbstractModel implements ProductTabsInterface
     }
 
     /**
+     * Set updated at
+     *
      * @param string $updatedAt
      * @return $this|ProductTabs
      */

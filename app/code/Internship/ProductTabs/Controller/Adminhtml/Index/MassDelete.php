@@ -1,14 +1,12 @@
 <?php
 /**
- * Store Locator
- * Controller process URL-request for delete more than one record
+ * Product Tabs
  *
  * @category  Internship
- * @package   Internship\StoreLocator
+ * @package   Internship\ProductTabs
  * @author    Andrii Tomkiv <tomkivandrii18@gmail.com>
- * @copyright 2022 Elogic
+ * @copyright 2023 tomk1v
  */
-
 namespace Internship\ProductTabs\Controller\Adminhtml\Index;
 
 use Exception;
@@ -59,6 +57,8 @@ class MassDelete extends Action
     }
 
     /**
+     * Executing mass delete action
+     *
      * @return Redirect
      * @throws LocalizedException|Exception
      */
@@ -77,7 +77,6 @@ class MassDelete extends Action
 
         /** @var Redirect $resultRedirect */
         $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
-
         return $resultRedirect->setPath('*/*/');
     }
 }

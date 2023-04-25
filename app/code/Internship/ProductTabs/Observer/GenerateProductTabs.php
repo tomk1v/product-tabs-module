@@ -1,20 +1,41 @@
 <?php
+/**
+ * Product Tabs
+ *
+ * @category  Internship
+ * @package   Internship\ProductTabs
+ * @author    Andrii Tomkiv <tomkivandrii18@gmail.com>
+ * @copyright 2023 tomk1v
+ */
 
 namespace Internship\ProductTabs\Observer;
 
+use Internship\ProductTabs\Model\ProductTabs\ProductTabsConfig;
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
 
 class GenerateProductTabs implements ObserverInterface
 {
-    private \Internship\ProductTabs\Model\ProductTabs\ProductTabsConfig $productTabsConfig;
+    /**
+     * @var ProductTabsConfig
+     */
+    private $productTabsConfig;
 
+    /**
+     * @param ProductTabsConfig $productTabsConfig
+     */
     public function __construct(
-        \Internship\ProductTabs\Model\ProductTabs\ProductTabsConfig $productTabsConfig
+        ProductTabsConfig $productTabsConfig
     ) {
         $this->productTabsConfig = $productTabsConfig;
     }
 
+    /**
+     * Add custom product tab after block layout generate
+     *
+     * @param Observer $observer
+     * @return void
+     */
     public function execute(Observer $observer)
     {
        /** @var \Magento\Framework\View\Layout $layout */
@@ -29,6 +50,13 @@ class GenerateProductTabs implements ObserverInterface
         }
     }
 
+    /**
+     * Add child block with product tab data
+     *
+     * @param $block
+     * @param $productTabs
+     * @return void
+     */
     private function addProductTabs($block, $productTabs)
     {
         foreach ($productTabs as $productTab) {

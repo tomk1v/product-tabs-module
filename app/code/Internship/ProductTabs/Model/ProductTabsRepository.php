@@ -1,4 +1,12 @@
 <?php
+/**
+ * Product Tabs
+ *
+ * @category  Internship
+ * @package   Internship\ProductTabs
+ * @author    Andrii Tomkiv <tomkivandrii18@gmail.com>
+ * @copyright 2023 tomk1v
+ */
 
 namespace Internship\ProductTabs\Model;
 
@@ -10,27 +18,50 @@ use Magento\Framework\Exception\CouldNotDeleteException;
 use Magento\Framework\Exception\CouldNotSaveException;
 use Internship\ProductTabs\Api\ProductTabsRepositoryInterface;
 use Internship\ProductTabs\Api\Data\ProductTabsInterface;
-use Internship\ProductTabs\Model\ProductTabsFactory;
 use Internship\ProductTabs\Model\ResourceModel\ProductTabs as ProductTabsResource;
 use Internship\ProductTabs\Model\ResourceModel\ProductTabs\CollectionFactory as ProductTabsCollectionFactory;
-use Internship\ProductTabs\Model\ResourceModel\ProductTabs\Collection;
 use Magento\Framework\Exception\NoSuchEntityException;
 
 class ProductTabsRepository implements ProductTabsRepositoryInterface
 {
+    /**
+     * @var ProductTabsFactory
+     */
     private $productTabsFactory;
+
+    /**
+     * @var ProductTabsResource
+     */
     private $productTabsResource;
+
+    /**
+     * @var ProductTabsCollectionFactory
+     */
     private $productTabsCollectionFactory;
+
+    /**
+     * @var SearchResultsFactory
+     */
     private $searchResultsFactory;
+
+    /**
+     * @var CollectionProcessorInterface
+     */
     private $collectionProcessor;
 
+    /**
+     * @param ProductTabsFactory $productTabsFactory
+     * @param ProductTabsResource $productTabsResource
+     * @param ProductTabsCollectionFactory $productTabsCollectionFactory
+     * @param SearchResultsFactory $searchResultsFactory
+     * @param CollectionProcessorInterface $collectionProcessor
+     */
     public function __construct(
         ProductTabsFactory              $productTabsFactory,
         ProductTabsResource                      $productTabsResource,
         ProductTabsCollectionFactory             $productTabsCollectionFactory,
         SearchResultsFactory                  $searchResultsFactory,
-        CollectionProcessorInterface          $collectionProcessor,
-        Collection                            $productTabsCollection
+        CollectionProcessorInterface          $collectionProcessor
     )
     {
         $this->productTabsFactory = $productTabsFactory;
@@ -38,10 +69,11 @@ class ProductTabsRepository implements ProductTabsRepositoryInterface
         $this->productTabsCollectionFactory = $productTabsCollectionFactory;
         $this->searchResultsFactory = $searchResultsFactory;
         $this->collectionProcessor = $collectionProcessor;
-        $this->productTabsCollection = $productTabsCollection;
     }
 
     /**
+     * Get entity by id
+     *
      * @param $entityId
      * @return ProductTabsInterface
      * @throws NoSuchEntityException
@@ -57,6 +89,8 @@ class ProductTabsRepository implements ProductTabsRepositoryInterface
     }
 
     /**
+     * Get list of items by search criteria
+     *
      * @param SearchCriteriaInterface $searchCriteria
      * @return SearchResults
      */
@@ -74,6 +108,8 @@ class ProductTabsRepository implements ProductTabsRepositoryInterface
     }
 
     /**
+     * Save entity
+     *
      * @inheritDoc
      * @throws CouldNotSaveException
      */
@@ -88,6 +124,8 @@ class ProductTabsRepository implements ProductTabsRepositoryInterface
     }
 
     /**
+     * Delete entity
+     *
      * @inheritDoc
      * @throws CouldNotDeleteException
      */
@@ -102,11 +140,13 @@ class ProductTabsRepository implements ProductTabsRepositoryInterface
     }
 
     /**
+     * Delete entity by id
+     *
      * @inheritDoc
      */
-    public function deleteById($entity_id)
+    public function deleteById($entityId)
     {
-        $productTabs = $this->getById($entity_id);
+        $productTabs = $this->getById($entityId);
         return $this->delete($productTabs);
     }
 }

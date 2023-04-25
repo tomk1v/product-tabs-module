@@ -1,12 +1,11 @@
 <?php
 /**
- * Store Locator
- * Ui Component for displaying drop down menu in admin
+ * Product Tabs
  *
  * @category  Internship
- * @package   Internship\StoreLocator
+ * @package   Internship\ProductTabs
  * @author    Andrii Tomkiv <tomkivandrii18@gmail.com>
- * @copyright 2022 Elogic
+ * @copyright 2023 tomk1v
  */
 
 namespace Internship\ProductTabs\Ui\Component\Listing\Column;
@@ -19,8 +18,14 @@ use Internship\ProductTabs\Api\Data\ProductTabsInterface;
 
 class Actions extends Column
 {
-    /** Url path */
+    /**
+     * Edit url
+     */
     const PATH_EDIT   = 'product_tabs/index/edit';
+
+    /**
+     * Delete url
+     */
     const PATH_DELETE = 'product_tabs/index/delete';
 
     /**
@@ -47,6 +52,8 @@ class Actions extends Column
     }
 
     /**
+     * Prepare data to product tabs grid
+     *
      * @param array $dataSource
      * @return array
      */

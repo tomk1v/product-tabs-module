@@ -1,12 +1,11 @@
 <?php
 /**
- * Store Locator
- * Data Provider for displaying data in grid and form
+ * Product Tabs
  *
  * @category  Internship
- * @package   Internship\StoreLocator
+ * @package   Internship\ProductTabs
  * @author    Andrii Tomkiv <tomkivandrii18@gmail.com>
- * @copyright 2022 Elogic
+ * @copyright 2023 tomk1v
  */
 
 namespace Internship\ProductTabs\Model\ProductTabs;
@@ -58,6 +57,8 @@ class DataProvider extends AbstractDataProvider
     }
 
     /**
+     * Default data for edit page
+     *
      * @return array
      */
     public function getData()
@@ -67,7 +68,6 @@ class DataProvider extends AbstractDataProvider
         }
 
         $items = $this->collection->getItems();
-
         /** @var ProductTabsInterface $location */
         foreach ($items as $location) {
             $this->loadedData[$location->getId()] = $location->getData();

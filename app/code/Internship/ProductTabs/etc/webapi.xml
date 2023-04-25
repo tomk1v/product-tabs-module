@@ -1,27 +1,39 @@
 <?xml version="1.0"?>
-<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
-    <route url="/V1/product_tabs/tabs" method="POST">
+<!--
+/**
+ * Product Tabs
+ *
+ * @category  Internship
+ * @package   Internship\ProductTabs
+ * @author    Andrii Tomkiv <tomkivandrii18@gmail.com>
+ * @copyright 2023 tomk1v
+ */
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/product_tabs/save" method="POST">
         <service class="Internship\ProductTabs\Api\ProductTabsRepositoryInterface"
                  method="save"/>
         <resources>
             <resource ref="anonymous"/>
         </resources>
     </route>
-    <route url="/V1/product_tabs/tabs/:id" method="DELETE">
+    <route url="/V1/product_tabs/delete/:entityId" method="DELETE">
         <service class="Internship\ProductTabs\Api\ProductTabsRepositoryInterface"
                  method="deleteById"/>
         <resources>
             <resource ref="anonymous"/>
         </resources>
     </route>
-    <route url="/V1/product_tabs/tabs/:id" method="GET">
+    <route url="/V1/product_tabs/get/:entityId" method="GET">
         <service class="Internship\ProductTabs\Api\ProductTabsRepositoryInterface"
                  method="getById"/>
         <resources>
             <resource ref="anonymous"/>
         </resources>
     </route>
-    <route url="/V1/product_tabs/tabs" method="GET">
+    <route url="/V1/product_tabs/getList" method="GET">
          <service class="Internship\ProductTabs\Api\ProductTabsRepositoryInterface"
                  method="getList"/>
         <resources>

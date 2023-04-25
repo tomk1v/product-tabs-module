@@ -1,5 +1,17 @@
 <?xml version="1.0"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+<!--
+/**
+ * Product Tabs
+ *
+ * @category  Internship
+ * @package   Internship\ProductTabs
+ * @author    Andrii Tomkiv <tomkivandrii18@gmail.com>
+ * @copyright 2023 tomk1v
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference for="Internship\ProductTabs\Api\Data\ProductTabsInterface"
                 type="Internship\ProductTabs\Model\ProductTabs"/>
 
@@ -12,14 +24,18 @@
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
-                <item name="internship_product_tabs_listing_data_source" xsi:type="string">InternshipProductTabsCollection</item>
+                <item name="internship_product_tabs_listing_data_source"
+                      xsi:type="string">InternshipProductTabsCollection</item>
             </argument>
         </arguments>
     </type>
-    <virtualType name="InternshipProductTabsCollection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+
+    <virtualType name="InternshipProductTabsCollection"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
         <arguments>
             <argument name="mainTable" xsi:type="string">internship_product_tabs</argument>
-            <argument name="resourceModel" xsi:type="string">Internship\ProductTabs\Model\ResourceModel\ProductTabs</argument>
+            <argument name="resourceModel"
+                      xsi:type="string">Internship\ProductTabs\Model\ResourceModel\ProductTabs</argument>
         </arguments>
     </virtualType>
 

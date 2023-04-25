@@ -10,38 +10,37 @@
 
 namespace Internship\ProductTabs\Api;
 
-use Internship\ProductTabs\Api\Data\ProductTabsInterface;
 use Magento\Framework\Api\SearchCriteriaInterface;
 
 interface ProductTabsRepositoryInterface
 {
     /**
      * @param int $entityId
-     * @return ProductTabsInterface
+     * @return \Internship\ProductTabs\Api\Data\ProductTabsInterface
      */
     public function getById(int $entityId);
 
     /**
      * @param SearchCriteriaInterface $searchCriteria
-     * @return ProductTabsInterface
+     * @return \Internship\ProductTabs\Api\Data\ProductTabsInterface
      */
     public function getList(SearchCriteriaInterface $searchCriteria);
 
     /**
-     * @param ProductTabsInterface $productTabs
-     * @return ProductTabsInterface
+     * @param \Internship\ProductTabs\Api\Data\ProductTabsInterface $productTabs
+     * @return \Internship\ProductTabs\Api\Data\ProductTabsInterface
      */
-    public function save(ProductTabsInterface $productTabs);
+    public function save(\Internship\ProductTabs\Api\Data\ProductTabsInterface $productTabs);
 
     /**
-     * @param ProductTabsInterface $productTabs
+     * @param \Internship\ProductTabs\Api\Data\ProductTabsInterface $productTabs
      * @return bool
      */
-    public function delete(ProductTabsInterface $productTabs);
+    public function delete(\Internship\ProductTabs\Api\Data\ProductTabsInterface $productTabs);
 
     /**
-     * @param int $entity_id
+     * @param int $entityId
      * @return bool
      */
-    public function deleteById(int $entity_id);
+    public function deleteById(int $entityId);
 }
