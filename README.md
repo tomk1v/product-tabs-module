@@ -1,7 +1,7 @@
 # ProductTabs module for Magento2
 
 ## Description
-The purpose of this module is to expand opportunities for customization product view page. It helps to add additional product tabs with description for it 
+The purpose of this module is to expand opportunities for customization product view page. It helps to add additional product tabs with description for it. 
 Here realized the most basic logic of Magento 2. Creating declarative schema, realizing CRUD, Service Contracts, WebApi, Dependency Injections, and also
 working with UI Components and layouts. Using plugins and observers for customizing the behavior of the system.
 
